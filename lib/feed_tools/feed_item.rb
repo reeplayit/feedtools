@@ -1404,7 +1404,7 @@ module FeedTools
       # If we have a single enclosure, it's safe to inherit the
       # itunes:duration field if it's missing.
       if @enclosures.size == 1
-        if @enclosures.first.duration.nil? || @enclosures.first.duration == 0
+        if @enclosures.first && (@enclosures.first.duration.nil? || @enclosures.first.duration == 0)
           @enclosures.first.duration = self.itunes_duration
         end
       end

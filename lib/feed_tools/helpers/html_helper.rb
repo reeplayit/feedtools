@@ -79,6 +79,10 @@ module FeedTools
       return unescaped_html
     end
 
+    def self.sanitize_html(html)
+      RailsSanitize.full_sanitizer.sanitize(html)
+    end
+
     # Removes all html tags from the html formatted text, but leaves
     # escaped entities alone.
     def self.strip_html_tags(html)
